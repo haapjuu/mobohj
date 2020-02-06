@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React getting started</title>
+  </head>
+  <body>
+    <!-- Root container for react components -->
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      
+      function HelloInputNames(){
+
+        const [name, setName] = React.useState('');
+        const [age, setAge] = React.useState('');
+        
+        
+        const nameChanged = (event) => {
+            setName(event.target.value);
+        };
+
+        const ageChanged = (event) => {
+            setAge(event.target.value);
+        };
+
+        const addTodo = (event) => {
+            event.preventDefault();
+            if(age >= 18){
+                alert("Hello " + name)
+                }else{
+                alert("You are too young.")
+            }
+        };
+
+     
+    return(
+    <div>
+    <form onSubmit={addTodo}>
+    Name:
+    <input type="text" name="name" value={name} onChange={nameChanged}/>
+    Age:
+    <input type="text" name="age" value={age} onChange={ageChanged}/>
+    
+    <input type="submit" value="Send"/>
+
+    </form>
+    </div>
+    );
+    };
+    
+      ReactDOM.render(<HelloInputNames/>, document.getElementById("root"));
+        
+    </script>
+  </body>
+</html>
