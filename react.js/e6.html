@@ -13,12 +13,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
     <script type="text/babel">
-     
+
      function TriviaQ(){
 
         const [question, setQuestion] = React.useState('');
-        const [isReady, setReady] = React.useState(false);
+      // ei tarvi  const [isReady, setReady] = React.useState(false);
 
+
+//const getQuestion functio jossa fetch pyyntö, laukaistaan onclickillä
      fetch('https://opentdb.com/api.php?amount=1')
      .then(response=> response.json())
      .then(responseData => {
